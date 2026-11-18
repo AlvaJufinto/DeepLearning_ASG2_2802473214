@@ -1,0 +1,27 @@
+{
+    "model": "Sparse Autoencoder",
+    "configuration": {
+        "latent_dim": 64,
+        "batch_size": 128,
+        "epochs": 30,
+        "learning_rate": 0.001,
+        "sparsity_weight": 0.001,
+        "seed": 42
+    },
+    "test_metrics": {
+        "mse": 6.228437046595982,
+        "psnr": 21.00913762337821,
+        "ssim": 0.751865155356271
+    },
+    "latent_sparsity": {
+        "zero_activation_ratio": 0.279535710811615,
+        "mean_absolute_activation": 0.48587116599082947,
+        "mean_active_neurons": 46.10971450805664,
+        "zero_threshold": 1e-06
+    },
+    "training": {
+        "best_epoch": 30,
+        "best_validation_mse": 0.007993872590701688,
+        "best_checkpoint": "results\\checkpoints\\sparse_ae_best.pth"
+    }
+}
