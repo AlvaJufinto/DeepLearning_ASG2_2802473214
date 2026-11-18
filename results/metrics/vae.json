@@ -1,0 +1,26 @@
+{
+    "model": "Variational Autoencoder",
+    "configuration": {
+        "latent_dim": 64,
+        "beta": 1.0,
+        "batch_size": 128,
+        "epochs": 30,
+        "learning_rate": 0.001,
+        "seed": 42
+    },
+    "test_metrics": {
+        "mse": 0.08750234283719743,
+        "psnr": 10.581665132795061,
+        "ssim": 0.1288346975871495
+    },
+    "latent_analysis": {
+        "mean": 3.0917708500055596e-06,
+        "std": 0.00020296165894251317,
+        "mean_kl_divergence": 1.0125168732234409e-06
+    },
+    "training": {
+        "best_epoch": 25,
+        "best_validation_reconstruction_mse": 0.08660587296315601,
+        "best_checkpoint": "results\\checkpoints\\vae_best.pth"
+    }
+}
