@@ -1,1 +1,16 @@
+
+# Dataset
 data/
+
+# Generated feature extraction
+results/features/*.pt
+
+# Model checkpoints
+results/checkpoints/*.pth
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
