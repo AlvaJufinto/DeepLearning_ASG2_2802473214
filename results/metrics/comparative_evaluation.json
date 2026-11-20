@@ -1,0 +1,60 @@
+{
+    "reconstruction_metrics_recomputed": {
+        "Vanilla AE": {
+            "mse": 0.008022499395876515,
+            "psnr": 20.96663930402483,
+            "ssim": 0.7476064902714321
+        },
+        "Sparse AE": {
+            "mse": 0.007944434919440711,
+            "psnr": 21.009137553623745,
+            "ssim": 0.7518651437759399
+        },
+        "VAE": {
+            "mse": 0.08750234460413629,
+            "psnr": 10.581665028163364,
+            "ssim": 0.12883468629632677
+        }
+    },
+    "training_times_seconds": {
+        "Vanilla AE": {
+            "total": 551.6947821000358,
+            "average_epoch": 18.389826070001195
+        },
+        "Sparse AE": {
+            "total": 406.86,
+            "average_epoch": 13.562000000000001
+        },
+        "VAE": {
+            "total": 315.78,
+            "average_epoch": 10.526
+        },
+        "Vanilla GAN": {
+            "total": 405.7927987575531,
+            "average_epoch": 13.52642662525177
+        },
+        "DCGAN": {
+            "total": 1986.31,
+            "average_epoch": 66.21033333333334
+        },
+        "DDPM": {
+            "total": 1417.4372045993805,
+            "average_epoch": 47.24790681997935
+        }
+    },
+    "inference_latency_ms_per_image_batch64": {
+        "Vanilla AE": 0.05949156238784781,
+        "Sparse AE": 0.04885437501798151,
+        "VAE": 0.04153437512286473,
+        "Vanilla GAN": 0.08208781255234499,
+        "DCGAN": 0.847013437487476,
+        "DDPM": 1235.3658578131217
+    },
+    "fid_available": false,
+    "notes": [
+        "Reconstruction metrics were recomputed with one reduction convention.",
+        "Sparse AE and VAE epoch times were recovered from recorded notebook logs.",
+        "DCGAN configuration and loss history come from its checkpoint because its metrics JSON is missing.",
+        "No FID score exists for any model."
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "experiment": "MLP Classifier Limitations",
+    "experiment_1": {
+        "name": "Weight Matrix Transposition",
+        "figure": "exp1_weight_transposition.png"
+    },
+    "experiment_2": {
+        "name": "Latent Feature Projection",
+        "figure": "exp2_latent_projection.png"
+    },
+    "experiment_3": {
+        "name": "Frozen Decoder Reconstruction",
+        "best_epoch": 29,
+        "best_validation_loss": 0.017864382858787265,
+        "training_time_seconds": 87.83933730010176,
+        "test_metrics": {
+            "test_mse": 0.01788187026977539,
+            "test_psnr": 18.274492263793945,
+            "test_ssim": 0.6543131715044006
+        }
+    },
+    "experiment_4": {
+        "experiment": "Latent Prior Sampling",
+        "num_samples": 16,
+        "latent_dim": 64,
+        "standard_normal": {
+            "mean": -0.027930794283747673,
+            "std": 0.9869282245635986
+        },
+        "empirical_gaussian": {
+            "mean": 1.483866572380066,
+            "std": 1.8578693866729736
+        },
+        "figure": "mlp_latent_prior_sampling.png"
+    }
+}
