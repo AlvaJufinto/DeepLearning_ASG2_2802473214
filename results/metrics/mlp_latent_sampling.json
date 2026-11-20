@@ -1,0 +1,14 @@
+{
+    "experiment": "Latent Prior Sampling",
+    "num_samples": 16,
+    "latent_dim": 64,
+    "standard_normal": {
+        "mean": -0.027930794283747673,
+        "std": 0.9869282245635986
+    },
+    "empirical_gaussian": {
+        "mean": 1.483866572380066,
+        "std": 1.8578693866729736
+    },
+    "figure": "mlp_latent_prior_sampling.png"
+}

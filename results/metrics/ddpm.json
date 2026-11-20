@@ -1,0 +1,21 @@
+{
+    "model": "DDPM",
+    "architecture": "CNN Noise Predictor",
+    "image_shape": [
+        1,
+        28,
+        28
+    ],
+    "timesteps": 500,
+    "epochs": 30,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "training_time_seconds": 1417.4372045993805,
+    "average_epoch_time_seconds": 47.24790681997935,
+    "inference_latency_ms_per_image_batch64": 85.26585251092911,
+    "best_validation_loss": 0.06339031197343553,
+    "final_train_loss": 0.06331867804271835,
+    "final_val_loss": 0.06414113035372325,
+    "fid_score": null,
+    "checkpoint": "ddpm_best.pth"
+}

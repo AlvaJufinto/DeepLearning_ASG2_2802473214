@@ -1,0 +1,12 @@
+{
+    "model": "Vanilla GAN",
+    "latent_dim": 100,
+    "epochs": 30,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "total_training_time_seconds": 405.7927987575531,
+    "average_epoch_time_seconds": 13.52642662525177,
+    "inference_latency_batch_64_seconds": 0.0006642240000655874,
+    "final_generator_loss": 0.8427473075049264,
+    "final_discriminator_loss": 1.343246992111206
+}
