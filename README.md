@@ -1,43 +1,24 @@
-# Fashion-MNIST Generative Models (D6421 Session 07)
+<!-- @format -->
 
-PyTorch implementations and experiments for Fashion-MNIST generative models.
-The repository currently contains the MLP classifier and its analysis; the
-remaining generative models are not implemented yet.
+# Fashion-MNIST Generative Models
 
-## Dataset and split
+PyTorch implementations and experiments for Fashion-MNIST generative models (D6421 Session 07).
 
-- Fashion-MNIST, 28×28 grayscale, 10 classes, 70,000 images.
-- All notebooks call `data_loader.get_dataloaders()` for the same split:
-  56,000 train / 7,000 validation / 7,000 test.
-- Batch size 128, seed 42, pixel range `[0, 1]`.
-- Checkpoints are selected on validation data. Test data is used only for final
-  evaluation and the MLP prior-statistics experiment.
+## Additional information
 
-## Repository layout
+Name : Stanislaus Alva Jufinto
+Class : LA01
+NIM : 2802473214
 
-```text
-ASG_2/
-├── data/FashionMNIST/          # dataset (not committed)
-├── models/
-│   ├── mlp_classifier.py
-│   └── autoencoder.py
-├── notebooks/
-│   ├── 01_mlp_classifier.ipynb
-│   ├── 02_autoencoder.ipynb
-│   └── 08_classifier_analysis.ipynb
-├── utils/
-│   ├── metrics.py
-│   ├── paths.py
-│   └── reproducibility.py
-├── results/
-│   ├── checkpoints/
-│   ├── features/
-│   ├── figures/
-│   └── metrics/
-├── data_loader.py
-├── requirements.txt
-└── README.md
-```
+## Dataset
+
+- Fashion-MNIST: 70,000 grayscale images (28×28), 10 classes.
+- Split: 56,000 training, 7,000 validation, 7,000 test.
+- Batch size: 128.
+- Random seed: 42.
+- Pixel range: `[0, 1]`.
+
+All notebooks use `data_loader.get_dataloaders()` to ensure consistent data splits. Validation data is used for checkpoint selection, while test data is reserved for final evaluation and the MLP prior-statistics experiment.
 
 ## Setup
 
@@ -45,52 +26,35 @@ ASG_2/
 pip install -r requirements.txt
 ```
 
-The project was developed with Python 3.12 and PyTorch 2.14. On an Intel Arc
-GPU, install the XPU build of PyTorch; the shared `get_device()` falls back to
-CUDA or CPU automatically.
+Developed with Python 3.12 and PyTorch 2.14. For Intel Arc GPUs, install the PyTorch XPU build.
 
-## Run order
+## Run Order
 
-1. `notebooks/01_mlp_classifier.ipynb` — trains the classifier and writes the
-   checkpoint plus MLP feature artifacts.
-2. `notebooks/02_autoencoder.ipynb` — trains the 64-dimensional Vanilla
-   Autoencoder and writes `vanilla_ae_best.pth`.
-3. `notebooks/08_classifier_analysis.ipynb` — runs the five classifier
-   experiments. Experiment 3 loads the autoencoder from step 2.
+Run the notebooks in this order:
 
-Notebooks 03–07 (Sparse AE, VAE, GAN, DCGAN, DDPM) and 09 (comparative
-evaluation) are not implemented yet. Do not create empty placeholders for them.
+1. `01_mlp_classifier.ipynb` — trains the MLP classifier and extracts features.
+2. `02_autoencoder.ipynb` — trains the 64-dimensional Vanilla Autoencoder.
+3. `08_classifier_analysis.ipynb` — runs five classifier experiments. Experiment 3 requires the Autoencoder checkpoint.
 
-## Artifacts
+Notebooks 03–07 (Sparse AE, VAE, GAN, DCGAN, and DDPM) and notebook 09 (comparative evaluation) are not implemented yet.
 
-All artifacts live under the repository-root `results/` directory. Notebooks
-resolve the project root by looking for `data_loader.py` and
-`models/mlp_classifier.py`, so they can be launched from `notebooks/` or from
-the repository root.
+## Results
 
-| Artifact | Producer |
-|---|---|
-| `results/checkpoints/mlp_classifier_best.pth` | notebook 01 |
-| `results/checkpoints/vanilla_ae_best.pth` | notebook 02 |
-| `results/checkpoints/mlp_frozen_decoder_best.pth` | notebook 08 |
-| `results/metrics/*.json` | each notebook |
-| `results/features/*.pt`, `*.pth` | notebooks 01 and 08 |
-| `results/figures/*.png` | notebooks 01, 02 and 08 |
+All generated artifacts are stored in the repository's `results/` directory.
 
-Notebook 08 loads an existing frozen-decoder checkpoint by default. Set
-`RETRAIN_DECODER = True` in its configuration cell to retrain and overwrite it.
+| Directory      | Contents                           |
+| -------------- | ---------------------------------- |
+| `checkpoints/` | Model checkpoints                  |
+| `features/`    | Extracted feature tensors          |
+| `figures/`     | Generated plots and visualizations |
+| `metrics/`     | Evaluation metrics in JSON format  |
 
-## Current status
+Main checkpoints:
 
-Executed and preserved:
+- `mlp_classifier_best.pth`
+- `vanilla_ae_best.pth`
+- `mlp_frozen_decoder_best.pth`
 
-- MLP training and test evaluation (test accuracy 89.34%).
-- MLP analysis Experiments 1 and 2.
+Notebooks automatically resolve the project root, so they can be launched from either the repository root or `notebooks/`.
 
-Implemented and smoke-tested, pending the final training run:
-
-- Vanilla Autoencoder training (notebook 02 was executed for one epoch in an
-  isolated temporary directory to verify the code path; no final checkpoint was
-  written to `results/`).
-- MLP analysis Experiments 3 and 4, which depend on the full autoencoder
-  checkpoint.
+Notebook 08 loads an existing frozen-decoder checkpoint by default. Set `RETRAIN_DECODER = True` to retrain it.
