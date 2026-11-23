@@ -26,17 +26,16 @@ All notebooks use `data_loader.get_dataloaders()` to ensure consistent data spli
 pip install -r requirements.txt
 ```
 
-Developed with Python 3.12 and PyTorch 2.14. For Intel Arc GPUs, install the PyTorch XPU build.
+NB: I used XPU (Intel Arc) for this experiment.
 
 ## Run Order
 
 Run the notebooks in this order:
 
-1. `01_mlp_classifier.ipynb` — trains the MLP classifier and extracts features.
-2. `02_autoencoder.ipynb` — trains the 64-dimensional Vanilla Autoencoder.
-3. `08_classifier_analysis.ipynb` — runs five classifier experiments. Experiment 3 requires the Autoencoder checkpoint.
-
-Notebooks 03–07 (Sparse AE, VAE, GAN, DCGAN, and DDPM) and notebook 09 (comparative evaluation) are not implemented yet.
+1. `01_mlp_classifier.ipynb`: trains the MLP classifier and extracts features.
+2. `02_autoencoder.ipynb`: trains the 64-dimensional Vanilla Autoencoder.
+3. Run the 0-7 notebooks to have all of the results first.
+4. `08_classifier_analysis.ipynb`: runs five classifier experiments. Requires 0-7 notebooks
 
 ## Results
 
@@ -56,5 +55,3 @@ Main checkpoints:
 - `mlp_frozen_decoder_best.pth`
 
 Notebooks automatically resolve the project root, so they can be launched from either the repository root or `notebooks/`.
-
-Notebook 08 loads an existing frozen-decoder checkpoint by default. Set `RETRAIN_DECODER = True` to retrain it.
